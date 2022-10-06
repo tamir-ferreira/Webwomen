@@ -44,12 +44,21 @@
     align-items: flex-end;
     margin-top: 36px;
     height: 38px;
+
+    /* border: 1px solid green; */
+}
+
+.footer-list div{
+    display: flex;
+    gap: 20px;
 }
 
 .footer-list span {
     padding: 4px 12px;
+    /* width: fit-content; */
     background: var(--color-grey-3);
     border-radius: var(--radius-default);
     color: var(--color-grey-2);
+
 }
 

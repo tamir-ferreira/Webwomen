@@ -74,7 +74,15 @@ function insertJobs(sourceArray) {
 /* ------------ RENDERIZAR VAGAS DO ARRAY INICIAL ------------- */
 function renderJobs(sourceArray) {
     listMain.innerHTML = "";
+
     sourceArray.forEach(job => {
+        const span = (job.modalities[1]) ? `<span>${job.modalities[1]}</span>` : ""
+        /* if (job.modalities[1]) {
+            span = `<span>${job.modalities[1]}</span>`
+        } else{
+            
+        } */
+
         listMain.insertAdjacentHTML('beforeend',
             `<li class="item-main"">
                 <h2 class="title-4">${job.title}</h2>
@@ -86,7 +94,7 @@ function renderJobs(sourceArray) {
                 <div class="footer-list">
                 <div>
                     <span>${job.modalities[0]}</span>
-                    <span>${job.modalities[1]}</span>
+                    ${span}
                 </div>
                 <button data-jobs="${job.id}" class="button-little">Candidatar</button>
                 </div>
@@ -96,7 +104,7 @@ function renderJobs(sourceArray) {
     insertJobs(sourceArray);
 }
 
-
+{/* <span>${job.modalities[1]}</span> */ }
 /* ------------ RENDERIZAR VAGAS DO ARRAY SELECIONADAS ------------- */
 function renderSelectedJobs(selectedArray) {
     listAside.innerHTML = "";

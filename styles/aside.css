@@ -41,10 +41,15 @@ gap: 2px;
     border-bottom: 2px solid var(--color-grey-5);
 }
 
+.item-aside:hover {
+    background-color: var(--color-grey-4);
+}
+
 .container-job {
     display: flex;
     justify-content: space-between;
     gap: 26px;
+    
 }
 
 /* .container-job h2 {
