@@ -16,7 +16,7 @@ function getJSON() {
         console.log('none')
     } else {
         emptyList.style.display = 'flex'
-        console.log('flex')
+        // console.log('flex')
     }
 }
 
@@ -36,7 +36,8 @@ function insertJobs(sourceArray) {
         job.onclick = () => {
             const jobID = job.getAttribute('data-jobs')
             // const findID = selectedJobs.find(job => job.id == jobID)
-            console.log(job)
+            const index = selectedJobs.findIndex(job => job.id == jobID)
+            // console.log(job)
             // if (!findID) {
             if (job.textContent == 'Candidatar') {
                 selectedJobs.push(
@@ -47,16 +48,24 @@ function insertJobs(sourceArray) {
                         location: sourceArray[jobID].location
                     }
                 )
-                job.textContent = 'Remover candidatura'
+                
                 // job.setAttribute('data-trash',jobID)
                 updateJSON(selectedJobs)
                 renderSelectedJobs(selectedJobs)
+                job.textContent = 'Remover candidatura'
                 emptyList.style.display = 'none'
                 
             } else{
+                // console.log('remover')
+                selectedJobs.splice(index, 1);
                 job.textContent = 'Candidatar'
-                removeJobs()
-            }    
+                updateJSON(selectedJobs)
+                renderSelectedJobs(selectedJobs)
+                // mapJobs()
+                // removeJobs(selectedJobs, job)
+                empty(selectedJobs)
+            }  
+
         }
     });
 }
@@ -89,6 +98,7 @@ function renderJobs(sourceArray) {
     insertJobs(sourceArray);
 }
 
+
 /* ------------ RENDERIZAR VAGAS DO ARRAY SELECIONADAS ------------- */
 function renderSelectedJobs(selectedArray) {
     listAside.innerHTML = "";
@@ -111,28 +121,50 @@ function renderSelectedJobs(selectedArray) {
     mapSelectedJobs(selectedArray)
 }
 
-/* ----------------- REMOVER VAGAS SELECIONADAS DO ARRAY E TELA ------------------*/
+
+/* ----------------- MAPEAR BOTÕES EXCLUIR VAGAS (TRASH) ------------------*/
 function mapSelectedJobs(selectedArray) {
     const jobTrash = document.querySelectorAll('[data-trash]')
 
     jobTrash.forEach(job => {
         job.children[0].lastElementChild.onclick = () => {
-            // console.dir(job.children[0])
+            console.dir(job)
             removeJobs(selectedArray, job)
         }
     });
 }
 
+
+/* ----------------- REMOVER VAGAS SELECIONADAS DO ARRAY E TELA ------------------*/
 function removeJobs(selectedArray, job) {
     const jobID = job.getAttribute('data-trash')
             const index = selectedArray.findIndex(job => job.id == jobID)
 
             selectedArray.splice(index, 1)
             updateJSON(selectedArray)
-            job.remove()
+            // job.remove()
+            empty(selectedArray)
 
-            if (selectedArray.length === 0) {
-                emptyList.style.display = 'flex'
-                localStorage.clear('selectedJobs')
-            }
+            
+            renderSelectedJobs(selectedArray)
 }
+
+
+function empty(selectedArray){
+    if (selectedArray.length === 0) {
+        emptyList.style.display = 'flex'
+        localStorage.clear('selectedJobs')
+    }
+}
+
+/* ----------------- MAPEAR BOTÕES EXCLUIR VAGAS (REMOVER CANDIDATURA) ------------------*/
+/* function mapJobs(selectedArray) {
+    const jobTrash = document.querySelectorAll('[data-trash]')
+
+    jobTrash.forEach(job => {
+        job.children[0].lastElementChild.onclick = () => {
+            console.dir(job)
+            removeJobs(selectedArray, job)
+        }
+    });
+} */
