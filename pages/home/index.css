@@ -1,1 +1,49 @@
-/* Desenvolva sua estilização aqui... */
+header {
+    background-image: url('../../assets/img/background.jpg');
+    height: 735px;
+    color: white;
+    background-attachment:fixed;
+    background-position:top;
+}
+
+
+.transparency {
+    background-image: url('../../assets/img/mask.png');
+    width: inherit;
+    height: inherit;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+section img {
+    width: 193.31px;
+    height: 23.97px;
+    margin-top: 158px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid yellow; */
+    height: 100%;
+}
+
+.header-content h1{
+    padding-bottom: 32px;
+}
+
+.header-content p{
+    line-height: 36px;
+}
+
+.header-content strong{
+    margin-top: 28px;
+    /* border: 1px solid yellow; */
+}

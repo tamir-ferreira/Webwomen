@@ -1,0 +1,57 @@
+@media screen and (max-width: 500px) {
+    body {
+        width: 100%;
+    }
+
+    header {
+        width: 100%;
+        height: 100%;
+        /* padding-bottom: 50px; */
+    }
+    .transparency{
+        width: 100%;
+        height: 100%;
+        padding-bottom: 118px;
+    }
+    
+    .header-container,
+    .container-main {
+        width: 100%;
+    }
+
+    .container {
+        padding: 0 16px;
+        width: 100%;
+    }
+
+    .main-aside {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .item-main {
+        width: 100%;
+        height: 100%;
+    }
+    section img {
+        margin-top: 100px;
+    }
+
+    aside{
+        width: 100%;
+        margin: 0;
+    }
+
+    .footer-list{
+        flex-direction: column;
+        align-items: flex-start;
+        gap:32px;
+        height: 100%;
+    }
+
+    .footer-list button{
+        width: 100%;
+    }
+
+}
+

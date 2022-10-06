@@ -1,23 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/globalStyles.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
-    <title>Webwomen</title>
-    <meta
-      name="description"
-      content="Está procurando oportunidades de estágio, emprego ou bolsas de estudo? 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles/globalStyles.css">
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/aside.css">
+  <link rel="stylesheet" href="../home/index.css">
+  <link rel="stylesheet" href="../../styles/mobile.css"> 
+  <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+  <title>Webwomen</title>
+  <meta name="description" content="Está procurando oportunidades de estágio, emprego ou bolsas de estudo? 
       Ou até mesmo oportunidades para atender eventos de tecnologia no Brasil 
-      e ao redor do mundo?"
-    />
+      e ao redor do mundo?" />
 </head>
+
 <body>
-    <main></main>
-    <script src="jobsData.js"></script>
-    <script src="index.js"></script>
+  <header>
+    <div class="transparency">
+      <section class="container">
+        <img src="../../assets/img/logo.svg" alt="logotipo Webwomen">
+        <div class="header-content">
+          <h1 class="title-1">Lugar de mulher é onde ela quiser!</h1>
+          <p>Está procurando oportunidades de estágio, emprego ou bolsas de estudo? </p>
+          <p>Ou até mesmo oportunidades para atender eventos de tecnologia no Brasil e ao redor do mundo?</p>
+          <strong>Confere aqui embaixo o que temos pra você!</strong>
+        </div>
+        <a href="#vagas" class="button-big">Ir para seção das vagas</a>
+      </section>
+    </div>
+  </header>
+  <div class="container-full"  id="vagas">
+    <div class="container main-aside">
+      <main class="container-main">
+        <h2 class="title-4">Vagas</h2>
+        <!-- <div class="columns-main"> -->
+        <ul class="list-main">
+          <li class="item-main">
+            <h2 class="title-4">Pessoa desenvolvedora front-end - React JS</h2>
+            <div class="location">
+              <span>Kenzie Academy</span>
+              <span>Curitiba</span>
+            </div>
+            <p>Lorem ipsum, dolor sit amet Lorem ipsum, dolor sit ame ips consectetur consecte tur Lorem
+              ipsum,
+              dolor sit amet consectetur dipisicing elit. At, quis?</p>
+            <div class="footer-list">
+              <span>Home Office</span>
+              <button class="button-little">Candidatar</button>
+            </div>
+          </li>
+          <li class="item-main">
+            <h2 class="title-4">Pessoa desenvolvedora back-end - Node JS</h2>
+            <div class="location">
+              <span>Brazilians in Tech</span>
+              <span>Rio de Janeiro</span>
+            </div>
+            <p>Lorem ipsum, dolor sit amet Lorem ipsum, dolor sit ame ips consectetur consecte tur Lorem
+              ipsum,
+              dolor sit amet consectetur dipisicing elit. At, quis?</p>
+            <div class="footer-list">
+              <span>Presencial</span>
+              <button class="button-little">Candidatar</button>
+            </div>
+          </li>
+          <li class="item-main">
+            <h2 class="title-4">Pessoa desenvolvedora Mobile - React Native</h2>
+            <div class="location">
+              <span>Brazilians in Tech</span>
+              <span>Bahia</span>
+            </div>
+            <p>Lorem ipsum, dolor sit amet Lorem ipsum, dolor sit ame ips consectetur consecte tur Lorem
+              ipsum,
+              dolor sit amet consectetur dipisicing elit. At, quis?</p>
+            <div class="footer-list">
+              <span>Híbrido</span>
+              <button class="button-little">Candidatar</button>
+            </div>
+          </li>
+          <li class="item-main">
+            <h2 class="title-4">Pessoa desenvolvedora FullStack </h2>
+            <div class="location">
+              <span>Brazilians in Tech</span>
+              <span>São Paulo</span>
+            </div>
+            <p>Lorem ipsum, dolor sit amet Lorem ipsum, dolor sit ame ips consectetur consecte tur Lorem
+              ipsum,
+              dolor sit amet consectetur dipisicing elit. At, quis?</p>
+            <div class="footer-list">
+              <span>Híbrido</span>
+              <button class="button-little">Candidatar</button>
+            </div>
+          </li>
+        </ul>
+      </main>
+
+      <aside>
+        <h2 class="title-4">Vagas selecionadas</h2>
+        <p class="text-2 empty-list">Você ainda não aplicou para nenhuma vaga</p>
+
+        <ul class="list-aside">
+          <li class="item-aside">
+            <div class="container-job">
+              <h2 class="title-5">Pessoa desenvolvedora front-end - React JS</h2>
+              <button>
+                <img src="../../assets/img/trash.svg" alt="lixeira">
+              </button>
+            </div>
+            <div class="location">
+              <span>Kenzie Academy</span>
+              <span>Curitiba</span>
+            </div>
+          </li>
+          <li class="item-aside">
+            <div class="container-job">
+              <h2 class="title-5">Pessoa desenvolvedora back-end - Node JS</h2>
+              <button>
+                <img src="../../assets/img/trash.svg" alt="lixeira">
+              </button>
+            </div>
+            <div class="location">
+              <span>Brazilians in Tech</span>
+              <span>Rio de Janeiro</span>
+            </div>
+          </li>
+          <li class="item-aside">
+            <div class="container-job">
+              <h2 class="title-5">Pessoa desenvolvedora Mobile - React Native</h2>
+              <button>
+                <img src="../../assets/img/trash.svg" alt="lixeira">
+              </button>
+            </div>
+            <div class="location">
+              <span>Brazilians in Tech</span>
+              <span>Bahia</span>
+            </div>
+          </li>
+          <li class="item-aside">
+            <div class="container-job">
+              <h2 class="title-5">Pessoa desenvolvedora FullStack</h2>
+              <button>
+                <img src="../../assets/img/trash.svg" alt="lixeira">
+              </button>
+            </div>
+            <div class="location">
+              <span>Brazilians in Tech</span>
+              <span>São Paulo</span>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+  <script src="jobsData.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>
