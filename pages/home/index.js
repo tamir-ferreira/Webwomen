@@ -3,6 +3,7 @@ const listAside = document.querySelector('.list-aside')
 const emptyList = document.querySelector('.empty-list')
 
 
+renderJobs(jobsData)
 getJSON()
 
 /* ------------- CARREGAR DADOS SALVOS ANTERIORMENTE NO LOCALSTORAGE -------------- */
@@ -13,10 +14,16 @@ function getJSON() {
         emptyList.style.display = 'none'
         selectedJobs = JSON.parse(dataJSON)
         renderSelectedJobs(selectedJobs)
-        console.log('none')
+
+        const listJobsSelected = document.querySelectorAll('[data-trash]')
+        listJobsSelected.forEach(jobID => {
+            const [...listJobs] = document.querySelectorAll('[data-jobs]')
+            const indexJobs = listJobs.find(job => job.getAttribute('data-jobs') == jobID.getAttribute('data-trash'))
+            indexJobs.textContent = 'Remover candidatura'
+        })
+
     } else {
         emptyList.style.display = 'flex'
-        // console.log('flex')
     }
 }
 
@@ -30,16 +37,14 @@ function updateJSON(selectedArray) {
 
 /* ----------- INSERIR VAGAS NA LISTA DE SELECIONADAS ------------ */
 function insertJobs(sourceArray) {
-    const insertJobs = document.querySelectorAll('[data-jobs]')
+    const listJobs = document.querySelectorAll('[data-jobs]')
 
-    insertJobs.forEach(job => {
-        job.onclick = () => {
-            const jobID = job.getAttribute('data-jobs')
-            // const findID = selectedJobs.find(job => job.id == jobID)
-            const index = selectedJobs.findIndex(job => job.id == jobID)
-            // console.log(job)
-            // if (!findID) {
-            if (job.textContent == 'Candidatar') {
+    listJobs.forEach(buttonJob => {
+        buttonJob.onclick = () => {
+            const jobID = buttonJob.getAttribute('data-jobs')
+            const index = selectedJobs.findIndex(buttonJob => buttonJob.id == jobID)
+
+            if (buttonJob.textContent == 'Candidatar') {
                 selectedJobs.push(
                     {
                         id: jobID,
@@ -48,30 +53,23 @@ function insertJobs(sourceArray) {
                         location: sourceArray[jobID].location
                     }
                 )
-                
-                // job.setAttribute('data-trash',jobID)
-                updateJSON(selectedJobs)
-                renderSelectedJobs(selectedJobs)
-                job.textContent = 'Remover candidatura'
-                emptyList.style.display = 'none'
-                
-            } else{
-                // console.log('remover')
-                selectedJobs.splice(index, 1);
-                job.textContent = 'Candidatar'
-                updateJSON(selectedJobs)
-                renderSelectedJobs(selectedJobs)
-                // mapJobs()
-                // removeJobs(selectedJobs, job)
-                empty(selectedJobs)
-            }  
 
+                updateJSON(selectedJobs)
+                renderSelectedJobs(selectedJobs)
+                buttonJob.textContent = 'Remover candidatura'
+                emptyList.style.display = 'none'
+
+            } else {
+                selectedJobs.splice(index, 1);
+                buttonJob.textContent = 'Candidatar'
+                updateJSON(selectedJobs)
+                renderSelectedJobs(selectedJobs)
+                empty(selectedJobs)
+            }
         }
     });
 }
 
-
-renderJobs(jobsData)
 
 /* ------------ RENDERIZAR VAGAS DO ARRAY INICIAL ------------- */
 function renderJobs(sourceArray) {
@@ -128,43 +126,33 @@ function mapSelectedJobs(selectedArray) {
 
     jobTrash.forEach(job => {
         job.children[0].lastElementChild.onclick = () => {
-            console.dir(job)
             removeJobs(selectedArray, job)
         }
     });
 }
 
 
-/* ----------------- REMOVER VAGAS SELECIONADAS DO ARRAY E TELA ------------------*/
+/* ----------------- REMOVER VAGAS SELECIONADAS DO ARRAY / LOCALSTORAGE ------------------*/
 function removeJobs(selectedArray, job) {
     const jobID = job.getAttribute('data-trash')
-            const index = selectedArray.findIndex(job => job.id == jobID)
+    const index = selectedArray.findIndex(job => job.id == jobID)
 
-            selectedArray.splice(index, 1)
-            updateJSON(selectedArray)
-            // job.remove()
-            empty(selectedArray)
+    let listJobs = document.querySelectorAll('[data-jobs]')
+    listJobs = [...listJobs]
 
-            
-            renderSelectedJobs(selectedArray)
+    const indexJobs = listJobs.find(job => job.getAttribute('data-jobs') == jobID)
+    indexJobs.textContent = 'Candidatar'
+    selectedArray.splice(index, 1)
+    updateJSON(selectedArray)
+    empty(selectedArray)
+    renderSelectedJobs(selectedArray)
 }
 
 
-function empty(selectedArray){
+/* ----------------- VERIFICAR SE O ARRAY DE VAGAS ESTÁ VAZIO ------------------*/
+function empty(selectedArray) {
     if (selectedArray.length === 0) {
         emptyList.style.display = 'flex'
         localStorage.clear('selectedJobs')
     }
 }
-
-/* ----------------- MAPEAR BOTÕES EXCLUIR VAGAS (REMOVER CANDIDATURA) ------------------*/
-/* function mapJobs(selectedArray) {
-    const jobTrash = document.querySelectorAll('[data-trash]')
-
-    jobTrash.forEach(job => {
-        job.children[0].lastElementChild.onclick = () => {
-            console.dir(job)
-            removeJobs(selectedArray, job)
-        }
-    });
-} */
