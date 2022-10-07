@@ -6,14 +6,14 @@
     header {
         width: 100%;
         height: 100%;
-        /* padding-bottom: 50px; */
     }
-    .transparency{
+
+    .transparency {
         width: 100%;
         height: 100%;
         padding-bottom: 118px;
     }
-    
+
     .header-container,
     .container-main {
         width: 100%;
@@ -33,25 +33,24 @@
         width: 100%;
         height: 100%;
     }
+
     section img {
         margin-top: 100px;
     }
 
-    aside{
+    aside {
         width: 100%;
         margin: 0;
     }
 
-    .footer-list{
+    .footer-list {
         flex-direction: column;
         align-items: flex-start;
-        gap:32px;
+        gap: 32px;
         height: 100%;
     }
 
-    .footer-list button{
+    .footer-list button {
         width: 100%;
     }
-
 }
-

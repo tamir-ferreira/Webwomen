@@ -6,6 +6,7 @@ const emptyList = document.querySelector('.empty-list')
 renderJobs(jobsData)
 getJSON()
 
+
 /* ------------- CARREGAR DADOS SALVOS ANTERIORMENTE NO LOCALSTORAGE -------------- */
 function getJSON() {
     const dataJSON = localStorage.getItem('selectedJobs')
@@ -76,27 +77,23 @@ function renderJobs(sourceArray) {
     listMain.innerHTML = "";
 
     sourceArray.forEach(job => {
-        const span = (job.modalities[1]) ? `<span>${job.modalities[1]}</span>` : ""
-        /* if (job.modalities[1]) {
-            span = `<span>${job.modalities[1]}</span>`
-        } else{
-            
-        } */
+        const {id, title, descrition, enterprise, modalities, location} = job
+        const span = (modalities[1]) ? `<span>${modalities[1]}</span>` : ""
 
         listMain.insertAdjacentHTML('beforeend',
             `<li class="item-main"">
-                <h2 class="title-4">${job.title}</h2>
+                <h2 class="title-4">${title}</h2>
                 <div class="location">
-                <span>${job.enterprise}</span>
-                <span>${job.location}</span>
+                <span>${enterprise}</span>
+                <span>${location}</span>
                 </div>
-                <p>${job.descrition}</p>
+                <p>${descrition}</p>
                 <div class="footer-list">
                 <div>
-                    <span>${job.modalities[0]}</span>
+                    <span>${modalities[0]}</span>
                     ${span}
                 </div>
-                <button data-jobs="${job.id}" class="button-little">Candidatar</button>
+                <button data-jobs="${id}" class="button-little">Candidatar</button>
                 </div>
             </li>`
         )
@@ -104,22 +101,23 @@ function renderJobs(sourceArray) {
     insertJobs(sourceArray);
 }
 
-{/* <span>${job.modalities[1]}</span> */ }
+
 /* ------------ RENDERIZAR VAGAS DO ARRAY SELECIONADAS ------------- */
 function renderSelectedJobs(selectedArray) {
     listAside.innerHTML = "";
     selectedArray.forEach(job => {
+        const {id, title, enterprise, location} = job
         listAside.insertAdjacentHTML('beforeend',
-            `<li class="item-aside" data-trash="${job.id}">
+            `<li class="item-aside" data-trash="${id}">
                 <div class="container-job">
-                <h2 class="title-5">${job.title}</h2>
+                <h2 class="title-5">${title}</h2>
                 <button>
                     <img src="../../assets/img/trash.svg" alt="lixeira">
                 </button>
                 </div>
                 <div class="location">
-                <span>${job.enterprise}</span>
-                <span>${job.location}</span>
+                <span>${enterprise}</span>
+                <span>${location}</span>
                 </div>
             </li>`
         )

@@ -1,7 +1,6 @@
 .container-main>h2 {
     margin-top: 45px;
     margin-bottom: 54px;
-    /* border: 1px solid green; */
 }
 
 .list-main {
@@ -17,12 +16,7 @@
     background: var(--color-grey-6);
     border-radius: var(--radius-default);
     margin-bottom: 32px;
-    /* border: 1px solid green; */
 }
-
-/* .item-main:hover{
-    background: #E9ECEF;
-} */
 
 .location {
     display: flex;
@@ -44,8 +38,6 @@
     align-items: flex-end;
     margin-top: 36px;
     height: 38px;
-
-    /* border: 1px solid green; */
 }
 
 .footer-list div{
@@ -55,10 +47,8 @@
 
 .footer-list span {
     padding: 4px 12px;
-    /* width: fit-content; */
     background: var(--color-grey-3);
     border-radius: var(--radius-default);
     color: var(--color-grey-2);
-
 }
 

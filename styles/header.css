@@ -1,11 +1,10 @@
 header {
     background-image: url('../../assets/img/background.jpg');
     height: 735px;
-    color: white;
+    color: var(--color-grey-6);
     background-attachment:fixed;
     background-position:top;
 }
-
 
 .transparency {
     background-image: url('../../assets/img/mask.png');
@@ -31,7 +30,6 @@ section img {
 .header-content {
     display: flex;
     flex-direction: column;
-    /* border: 1px solid yellow; */
     height: 100%;
 }
 
@@ -45,5 +43,4 @@ section img {
 
 .header-content strong{
     margin-top: 28px;
-    /* border: 1px solid yellow; */
 }
